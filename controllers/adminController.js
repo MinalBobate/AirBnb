@@ -62,7 +62,7 @@ router.get("/manageusers", async function (req, res) {
 
 router.get("/manageproperties", async function (req, res) {
     try {
-        Propertymodel.find({}, function (err, doc) {
+        Property.find({}, function (err, doc) {
             if (!err) {
                 res.render("manageproperties", { properties: doc });
             } else {

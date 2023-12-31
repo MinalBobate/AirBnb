@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const multer = require("multer")
 const jwt = require('jsonwebtoken');
 const cookieParser=require("cookie-parser")
+const mongoose=require("mongoose")
 
 const connection = require('./connection')
 
@@ -75,8 +76,9 @@ app.get('/help',async function(req,res){
     res.render("help") 
  })
 app.post("/help", function (req, res) {
+    console.log(req.body);
     try {
-        console.log(req.body);
+    
         let supportQuery = new Help({
             name: req.body.name,
             email: req.body.email,
@@ -89,7 +91,7 @@ app.post("/help", function (req, res) {
         res.render("success", { redirectLink: redirectLink, btnText: btnText });
     } catch (error) {
         let errorMessage = "There was an error";
-        let redirectLink = "/help";
+        let redirectLink = "help";
         let btnText = "Try again";
         res.render("failure", { errorMessage: errorMessage, redirectLink: redirectLink, btnText: btnText });
     }

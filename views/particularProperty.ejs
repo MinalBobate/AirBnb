@@ -5,7 +5,7 @@
         <div class="navigationBar">
             <!-- logo -->
             <div class="logo">
-                <% if(Object.keys(user).length === 0) { %>
+                <% if(user.length === 0) { %>
                 <a href="/"><i class="fa-brands fa-airbnb"></i>airbnb</a>
                 <% } else { %>
                 <a href="/myairbnb"><i class="fa-brands fa-airbnb"></i>airbnb</a>
@@ -97,8 +97,8 @@
     <div class="mt-3 px-5">
         <div class="imgContainer">
             <div class="mainImage">
-                <img src="data:image/<%=property.img[0].contentType%>;base64,<%=property.img[0].data.toString('base64')%>"
-                    alt="property-image1">
+                <!-- <img src="/<%=property.img[0].contentType%>;base64,<%=property.img[0].data.toString('base64')%>"
+                    alt="property-image1"> -->
             </div>
             <div class="sideImages">
                 <div class="sideImgDiv">
@@ -595,11 +595,7 @@
                 <li class="mt-3">Cancellation options</li>
                 <li class="mt-3">Our COVID-19 Response</li>
             </ul>
-            <!-- <div><a href="">Help Centre</a></div>
-            <div><a href="">AirCover</a></div>
-            <div><a href="">Safety information</a></div>
-            <div><a href="">Cancellation options</a></div>
-            <div><a href="">Our COVID-19 Response</a></div> -->
+     
         </div>
         <div class="col">
             <h3>Community</h3>
@@ -609,9 +605,7 @@
                 <li class="mt-3">Combating discrimination</li>
 
             </ul>
-            <!-- <div><a href="">Airbnb.org: disaster relief housing</a></div>
-            <div><a href="">Support refugees</a></div>
-            <div><a href="">Combating discrimination</a></div> -->
+           
         </div>
         <div class="col">
             <h3>Hosting</h3>
@@ -622,11 +616,7 @@
                 <li class="mt-3">Visit our community forum</li>
                 <li class="mt-3">How to host responsibly</li>
             </ul>
-            <!-- <div><a href="">Try hosting</a></div>
-            <div><a href="">AirCover for Hosts</a></div>
-            <div><a href="">Explore hosting resources</a></div>
-            <div><a href="">Visit our community forum</a></div>
-            <div><a href="">How to host responsibly</a></div> -->
+          
         </div>
         <div class="col">
             <h3>Airbnb</h3>
@@ -636,10 +626,7 @@
                 <li class="mt-3">Careers</li>
                 <li class="mt-3">Investors</li>
             </ul>
-            <!-- <div><a href="">Newsroom</a></div>
-            <div><a href="">Learn about new features</a></div>
-            <div><a href="">Careers</a></div>
-            <div><a href="">Investors</a></div> -->
+         
         </div>
     </div>
 
@@ -665,10 +652,7 @@
                 cday = "0" + cday;
             }
             var checkinDate = year + "-" + month + "-" + day;
-            // var checkoutDate = year + "-" + month + "-" + cday;
-            // console.log(d.toDateString(checkinDate));
-            // cid.value = checkinDate;
-            // cod.value = checkoutDate;
+      
             cid.setAttribute("min", checkinDate);
             cod.setAttribute("min", checkinDate);
 
@@ -679,49 +663,7 @@
             let clculateBtn = document.getElementById("calculate");
             let guestNum = document.getElementById("numOfGuests");
 
-            // guestNum.onchange = function () {
-            //     let x = guestNum.value;
-            //     if (x > (2 * numOfRooms.value)) {
-            //         window.alert("Maximum 2 guests are allowed per room!!!");
-            //         guestNum.value = "";
-            //     }
-            // }
-
-            // guestNum.onchange = function () {
-            //     let x = guestNum.value;
-            //     if (numOfRooms.value == "" || guestNum.value == "" || cid.value == "" || cod.value == "") {
-            //         window.alert("Please fill all the details first");
-            //         guestNum.value = "";
-            //     } else if (x > (2 * numOfRooms.value)) {
-            //         window.alert("Maximum 2 guests are allowed per room!!!");
-            //         guestNum.value = "";
-            //     } else {
-
-            //         let date1 = new Date(cid.value);
-            //         let date2 = new Date(cod.value);
-            //         var dateDiff = date2 - date1;
-            //         // console.log(dateDiff);
-            //         var nights;
-            //         var subtotal;
-            //         var total;
-
-            //         if (dateDiff < 0) {
-            //             window.alert("Checkout date must be ahead of checkin date");
-            //             cid.value = checkinDate;
-            //             cod.value = checkinDate;
-            //         } else {
-            //             nights = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
-            //             subtotal = chargePerDay.value * nights;
-            //             total = chargePerDay.value * numOfRooms.value * nights;
-            //             // console.log(nights);
-            //             document.getElementById("nights").innerHTML = nights;
-            //             document.getElementById("subtotal").innerHTML = "<span>&#8377</span>" + subtotal;
-            //             document.getElementById("rooms").innerHTML = numOfRooms.value;
-            //             document.getElementById("total").innerHTML = "<span>&#8377</span>" + total;
-            //         }
-            //     }
-
-            // }
+           
 
             clculateBtn.onclick = function () {
                 if (numOfRooms.value == "" || guestNum.value == "" || cid.value == "" || cod.value == "") {

@@ -3,7 +3,8 @@ const mongoose=require('mongoose');
 
  const propertySchema = new mongoose.Schema({
    
-    propertyName: String,
+    propertyName:String,
+        
     propertyType: String,
     owner: String,
     ownerImg: String,

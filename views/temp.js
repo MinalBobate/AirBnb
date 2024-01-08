@@ -97,9 +97,8 @@
     <div class="mt-3 px-5">
         <div class="imgContainer">
             <div class="mainImage">
-                <img src="<%=property.propertyImages[4]%>"
-                alt="property-image4">
-
+                <img src="/<%=property.img[0].contentType%>;base64,<%=property.img[0].data.toString('base64')%>"
+                    alt="property-image1">
             </div>
             <div class="sideImages">
                 <div class="sideImgDiv">

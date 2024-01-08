@@ -41,7 +41,7 @@ const registerProperty = async (req, res) => {
             req.files.forEach(file => {
                 filepaths.push("/PropertyImages/" + file.filename)
             })
-            console.log(filepaths);
+           
 
             let user;
             let email;
@@ -81,7 +81,7 @@ const registerProperty = async (req, res) => {
                 propertyImages: filepaths,
                 email: email
             });
-            console.log(property);
+           
             await  property.save()
             
             //await property.save(function (err, success) {
@@ -115,11 +115,11 @@ const registerProperty = async (req, res) => {
     //get particular property
     const particularProperty = async (req, res) => {
         try {
-            console.log(req.params);
+           
             var requestedPropertyId = req.params.property_id;
             var requestedProperty;
             var hostEmail;
-            let userNamedb;
+            let userNamedb={}
             let user;
             let result;
 
@@ -135,33 +135,23 @@ const registerProperty = async (req, res) => {
             }
 
 
-console.log(requestedPropertyId);
+                console.log(requestedPropertyId);
            let property = await Property.findOne({ _id: requestedPropertyId})
 
             // if (!err) {
             hostEmail = property.email;
+            console.log(hostEmail,'hostEmail');
        
             try {
-                await User.findOne({ email: hostEmail })
-                res.render("particularProperty", { property: property, hostProfile: result, user: userNamedb });
+                const resulthost =await User.findOne({ email: hostEmail })
+                console.log('userNamedb',userNamedb);
+                console.log('property',property);
+                console.log('hostprofile',result);
+                res.render("particularProperty", { property: property, hostProfile: resulthost, user: userNamedb });
 
             } catch (err) {
                 console.log(err);
             }
-
-
-
-
-            // if (!err) {
-            //     }else{
-            //         console.log("host email not found in user database",err);
-            //     }
-            // });
-            // } else {
-            //     console.log(err,"property not found");
-            // }
-            //  });
-
 
         } catch (error) {
             console.log(error);

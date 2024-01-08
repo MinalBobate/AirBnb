@@ -146,7 +146,7 @@ const registerProperty = async (req, res) => {
                 const resulthost =await User.findOne({ email: hostEmail })
                 console.log('userNamedb',userNamedb);
                 console.log('property',property);
-                console.log('hostprofile',result);
+                console.log('hostprofile',resulthost);
                 res.render("particularProperty", { property: property, hostProfile: resulthost, user: userNamedb });
 
             } catch (err) {

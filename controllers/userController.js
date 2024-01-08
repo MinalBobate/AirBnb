@@ -23,7 +23,7 @@ const signUpPost=async(req,res)=>{
       
         contactNumber: req.body.contactNumber,
         profilePicture: req.file.filename,
-        //profilePicture:path.join(__dirname + '/public/ProfileImages/' + req.file.filename),
+        // profilePicture:path.join(__dirname + '/public/ProfileImages/' + req.file.filename),
         city: req.body.city,
         state:req.body.state,
         country: req.body.country,

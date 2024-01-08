@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser=require("cookie-parser")
 const mongoose=require("mongoose")
 
-const connection = require('./connection')
+const Connection = require('./connection')
 
 //model
 const Property = require('./model/properties')
@@ -106,6 +106,14 @@ app.use("/property", propertyRoute);
 app.use("/booking", bookingRoute);
 app.use("/review", reviewRoute);
 app.use('/admin',adminRoute)
+
+const USERNAME=process.env.DB_USERNAME;
+const PASSWORD=process.env.DB_PASSWORD;
+const PORT = process.env.PORT || 8000;  
+const URL = process.env.MONGODB_URI || `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.jqsljhc.mongodb.net/?retryWrites=true&w=majority`
+// ${USERNAME}:${PASSWORD}
+
+Connection(URL);
 
 app.listen(process.env.PORT, () => { console.log("server started at 8000") })
 

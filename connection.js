@@ -1,25 +1,18 @@
-require("dotenv").config();
 const mongoose = require("mongoose");
-const mongoURI = process.env.DB;
 
-mongoose
-    .connect("mongodb://127.0.0.1:27017/AirbnbClone2", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        // useCreateIndex: true
-    })
-    .then(() => {
-        console.log(`db connection successful`);
-    })
-    .catch((err) => console.log(err));
+const Connection = async (URL) => {
 
-// mongoose
-//     .connect(mongoURI, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//         // useCreateIndex: true
-//     })
-//     .then(() => {
-//         console.log(`db connection successful`);
-//     })
-//     .catch((err) => console.log(err));
+ 
+    try {
+        await mongoose.connect(URL, { useUnifiedTopology: true, useNewUrlParser: true});
+        console.log('Database Connected Succesfully');
+    } catch(error) {
+        console.log('Error: ', error);
+    }
+
+};
+
+
+module.exports = Connection;
+
+

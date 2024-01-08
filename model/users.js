@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     state:String,
     city: String,
     gender: String,
-    profilePicture:   String,
+    profilePicture:String,
     favourites: [Number],
     tokens: {
         type: String
